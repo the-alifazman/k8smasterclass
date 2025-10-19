@@ -18,6 +18,8 @@ spec:
       containers:
         - image: httpd:2.4.65-trixie
           name: httpd
+          command: ["/bin/bash", "-c"] #override the default command
+          args: ["sleep 5; exit 1"] #sleep for 30 seconds then exit with an error
           resources: {}
   strategy:
     type: RollingUpdate
