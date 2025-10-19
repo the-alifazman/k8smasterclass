@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: hogwarts
+  name: hogwarts
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: hogwarts
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: hogwarts
+    spec:
+      containers:
+        - image: httpd:2.4.65-alpine3.22
+          name: httpd
+          resources: {}
+  strategy:
+    type: Recreate
+status: {}
